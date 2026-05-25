@@ -1,0 +1,6 @@
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+strawberry-graphql[fastapi]==0.316.0
+sqlalchemy==2.0.35
+grpcio>=1.80.0
+protobuf>=6.31.1

@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package producto;
+
+service ProductoService {
+  rpc CreateProducto(ProductoRequest) returns (ProductoResponse);
+  rpc ListProductos(Empty) returns (ProductoList);
+  rpc GetProducto(ProductoId) returns (ProductoResponse);
+  rpc UpdateProducto(UpdateProductoRequest) returns (ProductoResponse);
+  rpc DeleteProducto(ProductoId) returns (DeleteResponse);
+  rpc ListProductosGraphQL(Empty) returns (ProductoList);
+}
+
+message ProductoRequest {
+  string nombre = 1;
+  string descripcion = 2;
+  double precio = 3;
+}
+
+message UpdateProductoRequest {
+  int32 id = 1;
+  string nombre = 2;
+  string descripcion = 3;
+  double precio = 4;
+  bool update_nombre = 5;
+  bool update_descripcion = 6;
+  bool update_precio = 7;
+}
+
+message ProductoId {
+  int32 id = 1;
+}
+
+message ProductoResponse {
+  int32 id = 1;
+  string nombre = 2;
+  string descripcion = 3;
+  double precio = 4;
+}
+
+message ProductoList {
+  repeated ProductoResponse productos = 1;
+}
+
+message Empty {}
+
+message DeleteResponse {
+  bool success = 1;
+  string message = 2;
+}

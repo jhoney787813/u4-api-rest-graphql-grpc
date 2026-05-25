@@ -1,0 +1,4 @@
+grpcio>=1.80.0
+grpcio-tools>=1.80.0
+sqlalchemy==2.0.35
+protobuf>=6.31.1

@@ -1,0 +1,19 @@
+asos para ejecutar
+Proyecto GraphQL:
+
+
+cd producto-graphql
+python -m venv venv && venv\Scripts\activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload
+# Abrir: http://127.0.0.1:8000/graphql
+Proyecto gRPC:
+
+
+cd producto-grpc
+python -m venv venv && venv\Scripts\activate
+pip install -r requirements.txt
+python generate_protos.py      # paso obligatorio la primera vez
+python app/server.py           # terminal 1
+python client_test.py          # terminal 2
+Importante para gRPC: generate_protos.py debe ejecutarse antes del primer arranque. Reemplaza los placeholders producto_pb2.py y producto_pb2_grpc.py con los stubs reales generados por grpc_tools.protoc.
